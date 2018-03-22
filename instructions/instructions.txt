@@ -1,0 +1,3 @@
+Instructions:
+Objective: To gather as many bones as you can before you get caught by the enemy.
+Game Over: If you get caught by the enemy, the game will end.

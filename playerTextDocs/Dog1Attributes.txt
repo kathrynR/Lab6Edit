@@ -1,0 +1,2 @@
+./src/Images/dog1.jpg
+Favorite Saying: Ruff Ruff!!!
