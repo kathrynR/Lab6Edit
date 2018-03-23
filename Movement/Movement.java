@@ -19,12 +19,43 @@ public class Movement {
 	//change player coordinates accordingly and re-set them, show image in new position
 	public void movePlayer()
 	{	
-	}
+		if (arg0.getKeyCode() == keyEvent.VK_LEFT)
+		{
+			player.setX(positionX()-5);
+		}
+		else if(arg0.getKeyCode() == keyEvent.VK_RIGHT)
+		{
+			player.setX(positionX()+5);
+		}
+		else if(arg0.getKeyCode() == keyEvent.VK_UP)
+		{
+			player.setY(positionY()-5);
+		}
+		else if(arg0.getKeyCode() == keyEvent.VK_DOWN)
+		{
+			player.setY(positionY()+5);
+		}
 
 	//get enemy position X,Y, change coordinates based on player movement (somehow), re-set X,Y
 	//and show image in new position
 	public void moveEnemy()
-	{	
+	{
+		if(player.positionY()<enemy.positionY())
+		{
+			enemy.positionY()+5;
+		}
+		else if(player.positionY()>enemy.positionY())
+		{
+			enemy.positionY()-5;
+		}
+		else if(player.positionX()<enemy.positionX())
+		{
+			enemy.positionX()-5;
+		}
+		else if(player.positionX()>enemy.positionX())
+		{
+			enemy.positionX()+5;
+		}
 	}
 	
 	//boolean "watching" to see if player and enemy X,Y are the same
