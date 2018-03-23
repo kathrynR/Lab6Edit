@@ -62,7 +62,7 @@ public class Game {
 	private Integer[] topThreeScores = {0, 0, 0};
 	
 	// file containing player attributes and array that will store each file
-	private String filePath = "./src/playerTextDocs";
+	private String filePath = "./src/playerTextDocs/";
 	
 	private int itemNumber = 5;
 	
@@ -106,12 +106,10 @@ public class Game {
 		String fileLocation = randomlySelectPlayer();
 		File myFile = new File(fileLocation);
 		Scanner myScanner = new Scanner(myFile);
-		while(myScanner.hasNextLine()) {
-			name = myScanner.nextLine();
-			imagePath = myScanner.nextLine();
-			x = myScanner.nextInt();
-			y = myScanner.nextInt();
-		}
+		name = myScanner.nextLine();
+		imagePath = myScanner.nextLine();
+		x = myScanner.nextInt();
+		y = myScanner.nextInt();
 	}
 	
 	/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
