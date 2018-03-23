@@ -1,2 +1,4 @@
+Sidney
 ./src/Images/Cat.jpg
-Favorite Saying: Meeeeeoooooooowwww!!!
+20
+10

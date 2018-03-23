@@ -10,74 +10,41 @@ import javax.swing.Timer;
  * Player: set up player attributes and methods
  */
 public class Player {
-	
-	/*----------------------------
-	 * Attributes
-	 -----------------------------*/
+
 	private String name;
-	private String image;
-	private int positionX;
-	private int positionY;
-	//private int score;
+	private int x;
+	private int y;
+	private String imagePath;
+	private int score;
 	
-	/*----------------------------
-	 * Constructor
-	 -----------------------------*/
-	public Player(String name, String image, int positionX, int positionY, int score)
+	public Player(String name, int x, int y, String imagePath)
 	{
 		this.name = name;
-		this.image = image;
-		this.positionX = positionX;
-		this.positionY = positionY;
-		//this.score = score;
-		
+		this.x = x;
+		this.y  = y;
+		this.imagePath = imagePath;
+		this.score = score;
 	}
-	
-	/*----------------------------
-	 * Methods
-	 -----------------------------*/
-	//method to add player image icon to screen in position (X,Y)
-	// wouldn't this be a part of paint component??
-	public void showImage()
-	{
+
+	public int getX() {
+		return x;
 	}
-	
-	//method to get player position (X)
-	public int getPlayerPosX()
-	{ 
-		return positionX;
+
+	public int getY() {
+		return y;
 	}
-	
-	//method to get player position (Y)
-	public int getPlayerPosY()
-	{ 
-		return positionY;
+
+	public String getImagePath() {
+		return imagePath;
 	}
-	
-	// method to get image location
-	public String getImagePath()
-	{
-		return image;
+
+	public void setX(int x) {
+		this.x = x;
 	}
-	
-	//method to set player position (X,Y)
-	public void setPlayerPos(int X,int Y)
-	{
-		positionX = X;
-		positionY = Y;
+
+	public void setY(int y) {
+		this.y = y;
 	}
-	
-	//method to get player score
-	/*public int getScore()
-	{ 
-		return score;
-	}
-	
-	//method to set player score
-	public void setScore(int playerScore)
-	{
-		score = playerScore;
-	}*/
 	
 }
 

@@ -9,10 +9,12 @@ package panels;
 
 import javax.swing.JPanel;
 
+import game.Game;
 import game.StartGameButton;
 
 public class GamePanel extends JPanel {
 	public GamePanel() {
+		Game myGame = new Game(this);
 
 		
 	}

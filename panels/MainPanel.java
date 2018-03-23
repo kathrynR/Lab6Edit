@@ -18,14 +18,11 @@ import game.StartGameTitle;
 
 public class MainPanel extends JPanel {
 	public MainPanel() throws FileNotFoundException {
-		Game myGame = new Game(this)
 		setBackground(new Color(40, 145, 56));
 		setPreferredSize(new Dimension(600, 600));
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		
 	}
-	public void paintComponent(Graphics image) {
-		super.paintComponent(image);
-	}
+	
 
 }
