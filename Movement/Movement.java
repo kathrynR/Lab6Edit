@@ -14,6 +14,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.Timer;
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
@@ -23,10 +24,13 @@ import enemy.Enemy;
 public class Movement implements KeyListener{
 	private Player myPlayer;
 	private Enemy myEnemy;
+	private JPanel myPanel;
+	private Timer myTimer = new Timer();
 	
-	public Movement(Player myPlayer, Enemy myEnemy) {
+	public Movement(Player myPlayer, Enemy myEnemy, JPanel myPanel) {
 		this.myPlayer = myPlayer;
 		this.myEnemy = myEnemy;
+		this.myPanel = myPanel;
 		
 	}
 	
@@ -52,7 +56,7 @@ public class Movement implements KeyListener{
 		{
 			myPlayer.setY(myPlayer.getY()+5);
 		}
-	//repaint();
+	myPanel.repaint();
 	}
 
 	@Override
@@ -76,7 +80,31 @@ public class Movement implements KeyListener{
 	 * Increase the enemies speed when the enemy levels
 	 * up.
 	 * Enemy has to randomly appear??
+	 * Created this- need to check it once everything is shown on
+	 * the Panel.
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+	private class timerListener implements ActionListener
+	{
+
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			if (myEnemy.getX() < myPlayer.getX()) {
+				myEnemy.setX(myPlayer.getX() + 5);
+			}
+			else if (myEnemy.getX() > myPlayer.getY()) {
+				myEnemy.setX(myPlayer.getX() - 5);
+				
+			}
+			else if (myEnemy.getY() < myPlayer.getY()) {
+				myEnemy.setY(myPlayer.getY() + 5);
+			}
+			else if (myEnemy.getY() > myPlayer.getY()) {
+				myEnemy.setY(myPlayer.getY() - 5);
+			}
+			myPanel.repaint();
+		}
+		
+	}
 	
 	/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	 * 
