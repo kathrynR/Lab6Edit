@@ -18,5 +18,20 @@ public class GamePanel extends JPanel {
 
 		
 	}
+	public void paintComponent(Graphics page)
+	{
+		super.paintComponent(page);
+		page.drawImage(myIcon.getImage(), myPlayer.getX(), myPlayer.getY(), null);
+		page.drawImage(myIcon2.getImage(),myEnemy.getX(), myEnemy.getY(), null);
+		page.drawImage(myIcon3.getImage(),myItem.getX(), myItem.getY(), null);
+		
+		/*String itemPresent = areRectsColliding(myPlayer.getX(), (myPlayer.getX() + myIcon.getIconWidth()),myPlayer.getY(),(myPlayer.getY() + myIcon.getIconHeight()),
+				myItem.getX(),(myItem.getX() + myIcon3.getIconWidth()),myItem.getY(),(myItem.getY() + myIcon3.getIconHeight()));
+		
+		if (itemPresent.equals("false"))
+		{
+			page.
+		}*/
+	}
 
 }
