@@ -91,7 +91,7 @@ public class Movement implements KeyListener{
 			if (myEnemy.getX() < myPlayer.getX()) {
 				myEnemy.setX(myEnemy.getX() + 5);
 			}
-			else if (myEnemy.getX() > myPlayer.getY()) {
+			else if (myEnemy.getX() > myPlayer.getX()) {
 				myEnemy.setX(myEnemy.getX() - 5);
 				
 			}
