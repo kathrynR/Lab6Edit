@@ -20,6 +20,7 @@ public class StartGameButton {
 	/*_________________________________________________
 	 * Attributes
 	 __________________________________________________*/
+	private JPanel mainPanel;
 	private JPanel startMenu;
 	private GamePanel gamePanel = new GamePanel();
 	private JPanel buttonPanel = new JPanel();
@@ -31,8 +32,9 @@ public class StartGameButton {
 	/*_________________________________________________
 	 * Constructor
 	 __________________________________________________*/
-	public StartGameButton(JPanel startMenu) throws FileNotFoundException {
+	public StartGameButton(JPanel startMenu, JPanel mainPanel) throws FileNotFoundException {
 		this.startMenu = startMenu;
+		this.mainPanel = mainPanel;
 		instructionsPanel = new InstructionsPanel();
 		
 	}
@@ -85,6 +87,7 @@ public class StartGameButton {
 			// if the start button is pressed the startMenu panel will become invisible, and the gamePanel will become visible
 			if (arg0.getSource() == startButton) {
 				startMenu.setVisible(false);
+				mainPanel.add(gamePanel);
 				gamePanel.setVisible(true);
 				
 			}

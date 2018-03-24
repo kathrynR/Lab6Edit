@@ -7,6 +7,7 @@ public class LevelUp {
 	private int enemySpeed = 1;
 	private Enemy myEnemy;
 	private Items myItem;
+	private int incrementItems = 0;
 	
 	// Constructor overloads
 	public LevelUp(Enemy myEnemy) {
@@ -28,5 +29,8 @@ public class LevelUp {
 	// This method increases enemy speed by 1.
 	public void increaseEnemySpeed() {
 		myEnemy.setSpeed(enemySpeed + myEnemy.getSpeed());
+	}
+	public int incrementItemNumber() {
+		return 1;
 	}
 }

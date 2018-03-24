@@ -15,19 +15,17 @@ public class Items {
 	private int x;
 	private int y;
 	private String imagePath;
-	private int numberOfItems;
+	private int numberOfItems = 5;
 	private JPanel gamePanel;
 	
-	// Instance of random to set the location of items
-		private Random randInt = new Random();
 	
-	public Items(int x, int y, String imagePath, int numberOfItems, JPanel gamePanel)
+	
+	public Items(int x, int y, String imagePath, int numberOfItems)
 	{
 		this.x = x;
 		this.y = y;
 		this.imagePath = imagePath;
 		this.numberOfItems = numberOfItems;
-		this.gamePanel = gamePanel;
 	}
 
 	public int getX() {
@@ -57,13 +55,6 @@ public class Items {
 	
 	public int getnumberOfItems() {
 		return numberOfItems;
-	}
-	
-	private void setItemLocation() {
-		int randomItemX = randInt.nextInt(gamePanel.getWidth() + 1);
-		int randomItemY = randInt.nextInt(gamePanel.getHeight() + 1);
-		setX(randomItemX);
-		setY(randomItemY);
 	}
 
 	

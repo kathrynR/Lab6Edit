@@ -22,6 +22,11 @@ public class MainPanel extends JPanel {
 		setPreferredSize(new Dimension(600, 600));
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		
+		StartPanel startPanel = new StartPanel(this);
+		add(startPanel);
+		startPanel.setVisible(true);
+		
+		
 	}
 	
 

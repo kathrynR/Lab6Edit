@@ -1,4 +1,4 @@
 Sidney
-./src/Images/Cat.jpg
+./src/Images/Cat.png
 20
 10

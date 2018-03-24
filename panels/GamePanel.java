@@ -7,31 +7,33 @@
  */
 package panels;
 
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.io.FileNotFoundException;
+
 import javax.swing.JPanel;
 
 import game.Game;
 import game.StartGameButton;
 
 public class GamePanel extends JPanel {
-	public GamePanel() {
-		Game myGame = new Game(this);
+	private Game myGame;
+	public GamePanel() throws FileNotFoundException {
+		myGame = new Game(this);
+		myGame.setUp();
+		setPreferredSize(new Dimension(600, 600));
 
 		
 	}
 	public void paintComponent(Graphics page)
 	{
 		super.paintComponent(page);
-		page.drawImage(myIcon.getImage(), myPlayer.getX(), myPlayer.getY(), null);
-		page.drawImage(myIcon2.getImage(),myEnemy.getX(), myEnemy.getY(), null);
-		page.drawImage(myIcon3.getImage(),myItem.getX(), myItem.getY(), null);
+		page.drawImage(myGame.getPlayerIcon().getImage(), myGame.getPlayer().getX(), myGame.getPlayer().getY(), null);
+		page.drawImage(myGame.getEnemyIcon().getImage(),myGame.getEnemy().getX(), myGame.getEnemy().getY(), null);
+		for(int i = 0; i < myGame.getMyItemsList().size(); i++) {
+			page.drawImage(myGame.getItemsIconArray().get(i).getImage(), myGame.getMyItemsList().get(i).getX(), myGame.getMyItemsList().get(i).getY(), null);
+		}
 		
-		/*String itemPresent = areRectsColliding(myPlayer.getX(), (myPlayer.getX() + myIcon.getIconWidth()),myPlayer.getY(),(myPlayer.getY() + myIcon.getIconHeight()),
-				myItem.getX(),(myItem.getX() + myIcon3.getIconWidth()),myItem.getY(),(myItem.getY() + myIcon3.getIconHeight()));
-		
-		if (itemPresent.equals("false"))
-		{
-			page.
-		}*/
 	}
 
 }

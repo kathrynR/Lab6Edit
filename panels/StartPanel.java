@@ -16,14 +16,16 @@ import game.StartGameButton;
 import game.StartGameTitle;
 
 public class StartPanel extends JPanel {
-	public StartPanel() throws FileNotFoundException {
+	JPanel mainPanel;
+	public StartPanel(JPanel mainPanel) throws FileNotFoundException {
 		setBackground(Color.GREEN);
 		setPreferredSize(new Dimension(600,600));
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+		this.mainPanel = mainPanel;
 		
-		// Displays the title and on this panel
+		// Displays the title and buttonPanel on this panel
 		StartGameTitle.displayTitle(this, "Rover's Bone Retrieval");
-		StartGameButton myButtonsPanel = new StartGameButton(this);
+		StartGameButton myButtonsPanel = new StartGameButton(this, mainPanel);
 		myButtonsPanel.displayButtonPanel();
 	}
 

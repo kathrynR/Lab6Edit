@@ -1,4 +1,4 @@
 Rover
-./src/Images/dog1.jpg
+./src/Images/dog1.png
 10
 50
