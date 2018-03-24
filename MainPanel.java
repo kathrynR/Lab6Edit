@@ -15,15 +15,17 @@ import javax.swing.Timer;
 public class MainPanel extends JPanel implements KeyListener{
 
 	Random myRand = new Random();
-	int x = myRand.nextInt(801);
-	int y = myRand.nextInt(801);
+	int newItemX;
+	int newItemY;
+	int initialItemX = 0;
+	int initialItemY = 0;
+	Items [] myItems;
+	ImageIcon [] itemIcon;
 	JButton myButton;
 	Player myPlayer = new Player("joe",100,100, "./src/images/Dog1.png",0);
 	Enemy myEnemy = new Enemy(0,0, "./src/images/cat.png");
-	Items myItem = new Items(x,y,"./src/images/Ball2.png");
 	ImageIcon myIcon = new ImageIcon(myPlayer.getImagePath());
 	ImageIcon myIcon2 = new ImageIcon(myEnemy.getImagePath());
-	ImageIcon myIcon3 = new ImageIcon(myItem.getImagePath());
 	Timer myTimer = new Timer(500, new timerListener());
 	int r1TopLeftX;
 	int r1BottomRightX;
@@ -33,7 +35,8 @@ public class MainPanel extends JPanel implements KeyListener{
 	int r2BottomRightX;
 	int r2TopLeftY;
 	int r2BottomRightY;
-	
+	int level = 1;
+		
 	public MainPanel()
 	{
 		setPreferredSize(new Dimension(800,800));
@@ -43,14 +46,37 @@ public class MainPanel extends JPanel implements KeyListener{
 		addKeyListener(this);
 		setFocusable(true);
 		myTimer.start();
+		
+		myItems = new Items[4];
+		myItems[0] = new Items(initialItemX,initialItemY,"./src/images/Ball2.png");
+		myItems[1] = new Items(initialItemX,initialItemY,"./src/images/Ball2.png");
+		myItems[2] = new Items(initialItemX,initialItemY,"./src/images/Ball2.png");
+		myItems[3] = new Items(initialItemX,initialItemY,"./src/images/Ball2.png");
+		
+		itemIcon = new ImageIcon[4];
+		itemIcon[0] = new ImageIcon(myItems[0].getImagePath());
+		itemIcon[1] = new ImageIcon(myItems[1].getImagePath());
+		itemIcon[2] = new ImageIcon(myItems[2].getImagePath());
+		itemIcon[3] = new ImageIcon(myItems[3].getImagePath());
+		
 	}
-
+	
 	public void paintComponent(Graphics page)
 	{
 		super.paintComponent(page);
 		page.drawImage(myIcon.getImage(), myPlayer.getX(), myPlayer.getY(), null);
 		page.drawImage(myIcon2.getImage(),myEnemy.getX(), myEnemy.getY(), null);
-		page.drawImage(myIcon3.getImage(),myItem.getX(), myItem.getY(), null);
+		
+	
+		for (int i = 0; i < myItems.length; i++)
+		{
+			newItemX = myRand.nextInt(801);
+			newItemY = myRand.nextInt(801);
+			myItems[i].setX(newItemX);
+			myItems[i].setY(newItemY);
+			page.drawImage(itemIcon[i].getImage(),myItems[i].getX(), myItems[i].getY(), null);
+		}
+		
 		
 		/*String itemPresent = areRectsColliding(myPlayer.getX(), (myPlayer.getX() + myIcon.getIconWidth()),myPlayer.getY(),(myPlayer.getY() + myIcon.getIconHeight()),
 				myItem.getX(),(myItem.getX() + myIcon3.getIconWidth()),myItem.getY(),(myItem.getY() + myIcon3.getIconHeight()));
