@@ -67,7 +67,7 @@ public class Game {
 	
 	
 
-	private Movement movement = new Movement(player, enemy, gamePanel);
+	//private Movement movement = new Movement(player, enemy, gamePanel);
 	//private LevelUp levelUp = new LevelUp(enemy, player);
 	
 	// Used to determine top three scores

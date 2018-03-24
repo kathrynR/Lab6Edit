@@ -13,6 +13,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+import Movement.Movement;
 import panels.GamePanel;
 import panels.InstructionsPanel;
 
@@ -89,7 +90,8 @@ public class StartGameButton {
 				startMenu.setVisible(false);
 				mainPanel.add(gamePanel);
 				gamePanel.setVisible(true);
-				
+				Movement myMovement = new Movement(gamePanel.getMyGame().getPlayer(), gamePanel.getMyGame().getEnemy(), gamePanel);
+				myMovement.startTheTimer();
 			}
 			// if the instructions button is pressed the instructions panel will be added to the start menu panel
 			// the back button will become visible on the instructions panel

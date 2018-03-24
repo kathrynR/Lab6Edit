@@ -14,10 +14,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.Timer;
+
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
+import javax.swing.Timer;
 
 import enemy.Enemy;
 
@@ -25,7 +26,7 @@ public class Movement implements KeyListener{
 	private Player myPlayer;
 	private Enemy myEnemy;
 	private JPanel myPanel;
-	private Timer myTimer = new Timer();
+	Timer myTimer = new Timer(500, new timerListener());
 	
 	public Movement(Player myPlayer, Enemy myEnemy, JPanel myPanel) {
 		this.myPlayer = myPlayer;
@@ -34,6 +35,12 @@ public class Movement implements KeyListener{
 		
 	}
 	
+	public void startTheTimer() {
+		myTimer.start();
+	}
+	public void stopTheTimer() {
+		myTimer.stop();
+	}
 	@Override
 	public void keyPressed(KeyEvent arg0) {
 		// TODO Auto-generated method stub
@@ -91,14 +98,14 @@ public class Movement implements KeyListener{
 			if (myEnemy.getX() < myPlayer.getX()) {
 				myEnemy.setX(myEnemy.getX() + 5);
 			}
-			else if (myEnemy.getX() > myPlayer.getX()) {
+			if (myEnemy.getX() > myPlayer.getX()) {
 				myEnemy.setX(myEnemy.getX() - 5);
 				
 			}
-			else if (myEnemy.getY() < myPlayer.getY()) {
+			if (myEnemy.getY() < myPlayer.getY()) {
 				myEnemy.setY(myEnemy.getY() + 5);
 			}
-			else if (myEnemy.getY() > myPlayer.getY()) {
+			if (myEnemy.getY() > myPlayer.getY()) {
 				myEnemy.setY(myEnemy.getY() - 5);
 			}
 			myPanel.repaint();
@@ -128,15 +135,4 @@ public class Movement implements KeyListener{
 	 *  	myPlayer.setY(0);
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
-	
-/*private class timerListener implements ActionListener
-{
-
-	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		// TODO Auto-generated method stub
-		myPlayer2.setX(myPlayer2.getX() + 5);
-		repaint();
-	}
-}*/
 }
