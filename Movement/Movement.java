@@ -89,17 +89,17 @@ public class Movement implements KeyListener{
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
 			if (myEnemy.getX() < myPlayer.getX()) {
-				myEnemy.setX(myPlayer.getX() + 5);
+				myEnemy.setX(myEnemy.getX() + 5);
 			}
 			else if (myEnemy.getX() > myPlayer.getY()) {
-				myEnemy.setX(myPlayer.getX() - 5);
+				myEnemy.setX(myEnemy.getX() - 5);
 				
 			}
 			else if (myEnemy.getY() < myPlayer.getY()) {
-				myEnemy.setY(myPlayer.getY() + 5);
+				myEnemy.setY(myEnemy.getY() + 5);
 			}
 			else if (myEnemy.getY() > myPlayer.getY()) {
-				myEnemy.setY(myPlayer.getY() - 5);
+				myEnemy.setY(myEnemy.getY() - 5);
 			}
 			myPanel.repaint();
 		}
