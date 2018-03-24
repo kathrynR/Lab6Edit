@@ -92,6 +92,7 @@ public class StartGameButton {
 				gamePanel.setVisible(true);
 				Movement myMovement = new Movement(gamePanel.getMyGame().getPlayer(), gamePanel.getMyGame().getEnemy(), gamePanel);
 				myMovement.startTheTimer();
+				
 			}
 			// if the instructions button is pressed the instructions panel will be added to the start menu panel
 			// the back button will become visible on the instructions panel

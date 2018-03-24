@@ -13,6 +13,7 @@ import java.io.FileNotFoundException;
 
 import javax.swing.JPanel;
 
+import Movement.Movement;
 import game.Game;
 import game.StartGameButton;
 

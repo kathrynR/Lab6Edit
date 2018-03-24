@@ -46,8 +46,9 @@ public class Game {
 	
 	
 	private Enemy enemy;
-	private LevelUp levelUp = new LevelUp(enemy);
+	
 	private Items items;
+	private LevelUp levelUp = new LevelUp(items);
 	private Score score = new Score();
 	private JPanel gamePanel;
 	// Gather from file to pass into player parameters
@@ -66,9 +67,6 @@ public class Game {
 	private ArrayList<ImageIcon> itemsIconArray = new ArrayList<ImageIcon>();
 	
 	
-
-	//private Movement movement = new Movement(player, enemy, gamePanel);
-	//private LevelUp levelUp = new LevelUp(enemy, player);
 	
 	// Used to determine top three scores
 	private JLabel threeScoresDisplay = new JLabel();
@@ -208,12 +206,12 @@ public class Game {
 	 * this Game class.
 	 * Until enemy and player classes are finished this will not work.
 	 ?????????????????????????????????????????????????????????????????????????????????*/
-/*	public void nextLevel()
+	public void nextLevel()
 	{
-		levelUp.increaseEnemySpeed();
+		
 		levelUp.increaseItemNumber();
 	}
-	*/
+	
 
 	//display current player score
 	public int showScore()

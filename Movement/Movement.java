@@ -20,19 +20,23 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
+import Miscellaneous.LevelUp;
 import enemy.Enemy;
 
 public class Movement implements KeyListener{
 	private Player myPlayer;
 	private Enemy myEnemy;
 	private JPanel myPanel;
-	Timer myTimer = new Timer(500, new timerListener());
+	private int enemySpeed = 500;
+	private LevelUp levelUp = new LevelUp(500);
+	private Timer myTimer = new Timer(levelUp.getEnemySpeed(), new timerListener());
 	
 	public Movement(Player myPlayer, Enemy myEnemy, JPanel myPanel) {
 		this.myPlayer = myPlayer;
 		this.myEnemy = myEnemy;
 		this.myPanel = myPanel;
-		
+		myPanel.addKeyListener(this);
+		myPanel.requestFocus();
 	}
 	
 	public void startTheTimer() {
@@ -47,21 +51,34 @@ public class Movement implements KeyListener{
 		if(arg0.getKeyCode() == KeyEvent.VK_LEFT)
 		{
 			myPlayer.setX(myPlayer.getX()-5);
+			
+			if (myPlayer.getX() <= 0){ // if the x value of the players position is less than or equal to 0, then the player will reset to the right side of the screen.
+				myPlayer.setX(600);
+				}
 		}
 		
 		else if(arg0.getKeyCode() == KeyEvent.VK_RIGHT)
 		{
 			myPlayer.setX(myPlayer.getX()+5);
+			if (myPlayer.getX() >= 600){ // if the X value of the players position is greater than the right side of the screen, then the player will be reset to the left side of the screen
+				myPlayer.setX(0);
+			}
 		}
 		
 		else if(arg0.getKeyCode() == KeyEvent.VK_UP)
 		{
 			myPlayer.setY(myPlayer.getY()-5);
+			if (myPlayer.getY() <= 0){ // if the y value of the players position is less than or equal to 0, then the player will reset to the bottom of the screen.
+				 myPlayer.setY(600);
+				 }
 		}
 		
 		else if(arg0.getKeyCode() == KeyEvent.VK_DOWN)
 		{
 			myPlayer.setY(myPlayer.getY()+5);
+			if (myPlayer.getY() >= 600){ // if the y value of the players position is greater than or equal to the height of the panel, then the player will reset to the top of the screen.
+				 myPlayer.setY(0);
+			}
 		}
 	myPanel.repaint();
 	}
@@ -113,6 +130,7 @@ public class Movement implements KeyListener{
 		
 	}
 	
+	
 	/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	 * 
 	 * TODO: Collisions: Enemy and player collision
@@ -122,17 +140,10 @@ public class Movement implements KeyListener{
 	 *  Player and Edge of screen(not sure where to put this) Author: Kathryn
 	 *  Instead of using walls this could be used to reset
 	 *  the players location to the other side of the screen.
-	 *  if (myPlayer.getX() >= myPanel.getwidth(){ // if the X value of the players position is greater than the right side of the screen, then the player will be reset to the left side of the screen
-	 *  	myPlayer.setX(0);
-	 *  }
-	 *  else if (myPlayer.getX() <= 0{ // if the x value of the players position is less than or equal to 0, then the player will reset to the right side of the screen.
-	 *  	myPlayer.setX(myPanel.getwidth();
-	 *  }
-	 *  else if (myPlayer.getY() <= 0{ // if the y value of the players position is less than or equal to 0, then the player will reset to the bottom of the screen.
-	 *  	myPlayer.setY(myPanel.getwidth();
-	 *  }
-	 *  else if (myPlayer.getY() >= myPanel.getHeight(){ // if the y value of the players position is greater than or equal to the height of the panel, then the player will reset to the bottom of the screen.
-	 *  	myPlayer.setY(0);
+	 *  
+	 *  
+	 *  
+	 *  
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
 }

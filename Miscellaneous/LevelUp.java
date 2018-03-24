@@ -4,20 +4,15 @@ import items.Items;
 
 public class LevelUp {
 	private int itemNumber = 1;
-	private int enemySpeed = 1;
-	private Enemy myEnemy;
+	private int enemySpeed;
 	private Items myItem;
 	private int incrementItems = 0;
 	
 	// Constructor overloads
-	public LevelUp(Enemy myEnemy) {
-		this.myEnemy = myEnemy;
+	public LevelUp(int enemySpeed) {
+		this.enemySpeed = enemySpeed;
 	}
 	public LevelUp(Items myItem) {
-		this.myItem = myItem;
-	}
-	public LevelUp(Enemy myEnemy, Items myItem) {
-		this.myEnemy = myEnemy;
 		this.myItem = myItem;
 	}
 	
@@ -25,11 +20,17 @@ public class LevelUp {
 	public void increaseItemNumber() {
 		myItem.setNumberOfItems(itemNumber + myItem.getnumberOfItems());
 	}
-	
-	// This method increases enemy speed by 1.
-	public void increaseEnemySpeed() {
-		myEnemy.setSpeed(enemySpeed + myEnemy.getSpeed());
+	public int getEnemySpeed() {
+		return enemySpeed;
 	}
+	public void setEnemySpeed(int enemySpeed) {
+		this.enemySpeed = enemySpeed;
+	}
+	// This method increases enemy speed by 1.
+	public void increaseEnemySpeed(int enemySpeed) {
+		setEnemySpeed(enemySpeed + 100);
+	}
+	
 	public int incrementItemNumber() {
 		return 1;
 	}
