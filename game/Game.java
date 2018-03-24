@@ -35,12 +35,6 @@ public class Game {
 	 * (The Game class has an Enemy class, Player class, and Item class)
 	 ------------------------------------------------*/
 	
-	/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	 * 
-	 * TODO: Fix Player class, Enemy class, and Movement class
-	 * parameters below when they are completed.
-	 * 
-	 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 	// Instance of random to set the location of items
 	private Random randInt = new Random();
 	
@@ -49,7 +43,6 @@ public class Game {
 	
 	private Items items;
 	private LevelUp levelUp = new LevelUp(items);
-	private Score score = new Score();
 	private JPanel gamePanel;
 	// Gather from file to pass into player parameters
 	private String name;
@@ -65,12 +58,6 @@ public class Game {
 	// Item ArrayList, will store instances of Items
 	private ArrayList<Items> myItemsList = new ArrayList<Items>();
 	private ArrayList<ImageIcon> itemsIconArray = new ArrayList<ImageIcon>();
-	
-	
-	
-	// Used to determine top three scores
-	private JLabel threeScoresDisplay = new JLabel();
-	private Integer[] topThreeScores = {0, 0, 0};
 	
 	// file containing player attributes and array that will store each file
 	private String filePath = "./src/playerTextDocs/";
@@ -169,7 +156,7 @@ public class Game {
 	 * Sets up the items on the screen. Creates a certain number of instances of items.
 	 _________________________________________________________________________________________*/ 
 	private void setUpItems() {
-		for(int i = 0; i < (5 + levelUp.incrementItemNumber()) ; i++) {
+		for(int i = 0; i < (4 + levelUp.incrementItemNumber()) ; i++) {
 			
 			int randomItemX = randInt.nextInt(550 + 1);
 			int randomItemY = randInt.nextInt(550 + 1);
@@ -186,6 +173,14 @@ public class Game {
 		
 	}
 	
+
+	public LevelUp getLevelUp() {
+		return levelUp;
+	}
+
+	public void setLevelUp(LevelUp levelUp) {
+		this.levelUp = levelUp;
+	}
 
 	//sets up screen
 	// Kathryn: Will set up the characters and the items on screen
@@ -211,47 +206,7 @@ public class Game {
 		
 		levelUp.increaseItemNumber();
 	}
-	
 
-	//display current player score
-	public int showScore()
-	{
-		return score.getPlayerScore();
-	}
-	
-	//calculate and store top 3 scores and accompanying player info
-	// Kathryn: added calculate to the beginning of method name to distinguish it from the other method
-	// Kathryn: Method will add the top three scores to an array.
-	private void calculateTopThree()
-	{	
-		if(score.getPlayerScore() > topThreeScores[0]) {
-			topThreeScores[0] = score.getPlayerScore();
-		}
-		else if(score.getPlayerScore() > topThreeScores[1]) {
-			topThreeScores[1] = score.getPlayerScore();
-		}
-		else if(score.getPlayerScore() > topThreeScores[2]) {
-			topThreeScores[2] = score.getPlayerScore();
-		}
-	}
-	
-	// display top 3 scores and accompanying player info
-	// Kathryn: This method will display the top three scores in a JLabel.
-	/*???????????????????????????????????????????????????????????????????????????
-	 * 
-	 * NOTE: We only have to display the top three high scores. Not scores from
-	 * different players.
-	 * 
-	 ????????????????????????????????????????????????????????????????????????????*/
-	public void showTopThree()
-	{
-		calculateTopThree();
-		String scoresString = "<html><body>Top Score: " + topThreeScores[0] + "\n" +
-							  "Second Top Score: " + topThreeScores[1] + "\n" +
-							  "Third Top Score: " + topThreeScores[2] + "\n</body></html>";
-		threeScoresDisplay.setText(scoresString);
-		gamePanel.add(threeScoresDisplay);
-	}
 	
 	/*----------------------------------------------------
 	 * Getters and Setters

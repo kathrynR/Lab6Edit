@@ -13,6 +13,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+import Miscellaneous.Score;
 import Movement.Movement;
 import panels.GamePanel;
 import panels.InstructionsPanel;
@@ -23,6 +24,7 @@ public class StartGameButton {
 	 __________________________________________________*/
 	private JPanel mainPanel;
 	private JPanel startMenu;
+	private Score myScore = new Score();
 	private GamePanel gamePanel = new GamePanel();
 	private JPanel buttonPanel = new JPanel();
 	private JButton startButton = new JButton("Start Game");
@@ -40,6 +42,20 @@ public class StartGameButton {
 		
 	}
 	
+	
+
+	public Score getMyScore() {
+		return myScore;
+	}
+
+
+
+	public void setMyScore(Score myScore) {
+		this.myScore = myScore;
+	}
+
+
+
 	/*_________________________________________________
 	 * Methods
 	 __________________________________________________*/
@@ -90,7 +106,8 @@ public class StartGameButton {
 				startMenu.setVisible(false);
 				mainPanel.add(gamePanel);
 				gamePanel.setVisible(true);
-				Movement myMovement = new Movement(gamePanel.getMyGame().getPlayer(), gamePanel.getMyGame().getEnemy(), gamePanel);
+				
+				Movement myMovement = new Movement(gamePanel.getMyGame().getPlayer(), gamePanel.getMyGame().getEnemy(), gamePanel, gamePanel.getMyItemsList(), gamePanel.getItemsIconArray(), gamePanel.getPlayerIcon(), gamePanel.getEnemyIcon(), myScore);
 				myMovement.startTheTimer();
 				
 			}
@@ -113,6 +130,7 @@ public class StartGameButton {
 			}
 			
 		}
+		
 		
 	}
 	
