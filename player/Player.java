@@ -43,29 +43,42 @@ public class Player {
 	}
 	
 	//method to get player position (X)
-	public int getPlayerPosX()
+	public int getX()
 	{ 
 		return positionX;
 	}
 	
 	//method to get player position (Y)
-	public int getPlayerPosY()
+	public int getY()
 	{ 
 		return positionY;
 	}
 	
-	// method to get image location
-	public String getImagePath()
+	//method to set player position (X)
+	public void setX(int positionX)
 	{
-		return image;
+		this.positionX = positionX;
 	}
 	
-	//method to set player position (X,Y)
-	public void setPlayerPos(int X,int Y)
+	//method to set player position (y)
+	public void setY(int positionY)
 	{
-		positionX = X;
-		positionY = Y;
+		this.positionY = positionY;
 	}
+	
+	// method to get image location
+	public String getBottomX()
+	{
+		getBottomX = image.getWidth()+Player.getX();
+		return getBottomX;
+	}
+	public String getBottomY()
+	{
+		getBottomY = image.getWidth()+Player.getY();
+		return getBottomY;
+	}
+	
+	
 	
 	//method to get player score
 	/*public int getScore()
@@ -80,4 +93,3 @@ public class Player {
 	}*/
 	
 }
-
