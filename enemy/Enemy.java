@@ -1,9 +1,9 @@
 package enemy;
 /*
- * Author: Kate Hohenstein
- * Partners: Hannah Hollenback, Kathryn Reese
+ * Author: Hannah Hollenback
+ * Partners: Kate Hohenstein, Kathryn Reese
  * Lab 6
- * 3/10/18
+ * 3/20/18
  * Enemy: set up enemy attributes and methods
  */
 public class Enemy {
@@ -39,11 +39,27 @@ public class Enemy {
 		return positionY;
 	}
 	
-	//method to set enemy position (X,Y)
-	public void setEnemyPos(int X, int Y)
+	//method to set player position (X)
+	public void setX(int positionX)
 	{
-		positionX = X;
-		positionY = Y;
+		this.positionX = positionX;
+	}
+	
+	//method to set player position (y)
+	public void setY(int positionY)
+	{
+		this.positionY = positionY;
+	}
+	
+	public String getEnemyBottomX()
+	{
+		getBottomX = image.getWidth()+Enemy.getX();
+		return getBottomX;
+	}
+	public String getEnemyBottomY()
+	{
+		getBottomY = image.getWidth()+Enemy.getY();
+		return getBottomY;
 	}
 	
 	//method to get enemy speed
@@ -61,3 +77,4 @@ public class Enemy {
 	*/
 
 }
+
