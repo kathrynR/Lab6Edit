@@ -42,12 +42,26 @@ public class Items {
 		return positionY;
 	}
 	
-	//method to set item position (X,Y)
-	public void setItemPos(int X,int Y)
+	//method to set player position (X)
+	public void setX(int positionX)
 	{
-		positionX = X;
-		positionY = Y;
+		this.positionX = positionX;
 	}
+	
+	//method to set player position (y)
+	public void setY(int positionY)
+	{
+		this.positionY = positionY;
+	}
+	public String getItemBottomX()
+	{
+		getBottomX = image.getWidth()+Item.getX();
+		return getBottomX;
+	}
+	public String getItemBottomY()
+	{
+		getBottomY = image.getWidth()+Item.getY();
+		return getBottomY;
 	
 	//method to get number of items
 	public int getNumItems()
