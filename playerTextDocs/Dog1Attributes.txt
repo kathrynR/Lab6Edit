@@ -1,2 +1,4 @@
-./src/Images/dog1.jpg
-Favorite Saying: Ruff Ruff!!!
+Rover
+./src/Images/dog1.png
+10
+50

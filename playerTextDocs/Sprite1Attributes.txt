@@ -1,2 +1,4 @@
+Boneman
 ./src/Images/Sprite1.jpg
-Favorite Saying: I'm a man who loves to eat bones!!!
+50
+100

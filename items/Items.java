@@ -1,4 +1,9 @@
 package items;
+
+import java.util.Random;
+
+import javax.swing.JPanel;
+
 /*
  * Author: Kate Hohenstein
  * Partners: Hannah Hollenback, Kathryn Reese
@@ -7,59 +12,51 @@ package items;
  * Item: set up item attributes and methods
  */
 public class Items {
-	private String image;
-	private int numOfItems;
-	private int positionX;
-	private int positionY;
+	private int x;
+	private int y;
+	private String imagePath;
+	private int numberOfItems = 5;
+	private JPanel gamePanel;
 	
-	public Items(String image, int numOfItems, int positionX, int positionY)
+	
+	
+	public Items(int x, int y, String imagePath, int numberOfItems)
 	{
-		this.image = image;
-		this.numOfItems = numOfItems;
-		this.positionX = positionX;
-		this.positionY = positionY;
+		this.x = x;
+		this.y = y;
+		this.imagePath = imagePath;
+		this.numberOfItems = numberOfItems;
 	}
-	
-	//method to add item image icons to screen, based on # of items, and random X,Y combinations?
-	public void showItemImage()
+
+	public int getX() {
+		return x;
+	}
+
+	public int getY() {
+		return y;
+	}
+
+	public String getImagePath() {
+		return imagePath;
+	}
+
+	public void setX(int x) {
+		this.x = x;
+	}
+
+	public void setY(int y) {
+		this.y = y;
+	}
+
+	public void setNumberOfItems(int newItemNumber)
 	{
+		this.numberOfItems = numberOfItems;
 	}
 	
-	//method to remove image icons from screen when player collides with them
-	public void removeItemImage()
-	{
+	public int getnumberOfItems() {
+		return numberOfItems;
 	}
-	
-	//method to get item position (X)
-	public int getItemPosX()
-	{ 
-		return positionX;
-	}
-	
-	//method to get item position (Y)
-	public int getItemPosY()
-	{ 
-		return positionY;
-	}
-	
-	//method to set item position (X,Y)
-	public void setItemPos(int X,int Y)
-	{
-		positionX = X;
-		positionY = Y;
-	}
-	
-	//method to get number of items
-	public int getNumItems()
-	{ 
-		return numOfItems;
-	}
-	
-	//method to set number of items
-	public void setNumItems(int newItemNumber)
-	{
-		numOfItems = newItemNumber;
-	}
+
 	
 }
 
