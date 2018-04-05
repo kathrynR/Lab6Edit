@@ -41,20 +41,6 @@ public class StartGameButton {
 		instructionsPanel = new InstructionsPanel();
 		
 	}
-	
-	
-
-	public Score getMyScore() {
-		return myScore;
-	}
-
-
-
-	public void setMyScore(Score myScore) {
-		this.myScore = myScore;
-	}
-
-
 
 	/*_________________________________________________
 	 * Methods
@@ -101,7 +87,13 @@ public class StartGameButton {
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			// if the start button is pressed the startMenu panel will become invisible, and the gamePanel will become visible
+			/*---------------------------------------------------------------------------
+			 * 
+			 * if the start button is pressed the startMenu panel will become invisible, 
+			 * and the gamePanel will become visible. The movement class will also be 
+			 * instantiated and enemy timer started.
+			 * 
+			 ----------------------------------------------------------------------------*/ 
 			if (arg0.getSource() == startButton) {
 				startMenu.setVisible(false);
 				mainPanel.add(gamePanel);
@@ -111,9 +103,13 @@ public class StartGameButton {
 				myMovement.startTheTimer();
 				
 			}
-			// if the instructions button is pressed the instructions panel will be added to the start menu panel
-			// the back button will become visible on the instructions panel
-			// the button panel with the start and instructions button will become invisible
+			/*--------------------------------------------------------------------------------------------------------
+			 * 
+			 * if the instructions button is pressed the instructions panel will be added to the start menu panel
+			 * the back button will become visible on the instructions panel
+			 * the button panel with the start and instructions button will become invisible
+			 * 
+			 ---------------------------------------------------------------------------------------------------------*/
 			else if(arg0.getSource() == instructionsButton) {
 				startMenu.add(instructionsPanel);
 				instructionsPanel.setVisible(true);
@@ -122,8 +118,12 @@ public class StartGameButton {
 				buttonPanel.setVisible(false);
 				
 			}
-			// exit instructions button, when pressed, will set the instructions panel to invisible,
-			// and the buttons panel to visible
+			/*-----------------------------------------------------------------------------
+			 * 
+			 * If the exit instructions button is pressed it will set the instructions 
+			 * panel to invisible, and the buttons panel to visible
+			 * 
+			 ------------------------------------------------------------------------------*/
 			else if(arg0.getSource() == exitInstructionsButton) {
 				instructionsPanel.setVisible(false);
 				buttonPanel.setVisible(true);

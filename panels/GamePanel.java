@@ -16,9 +16,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 import Miscellaneous.LevelUp;
-import Movement.Movement;
 import game.Game;
-import game.StartGameButton;
 import items.Items;
 
 public class GamePanel extends JPanel {
@@ -51,6 +49,7 @@ public class GamePanel extends JPanel {
 		}
 		
 	}
+	// Getters and Setters
 	public ImageIcon getPlayerIcon() {
 		return playerIcon;
 	}

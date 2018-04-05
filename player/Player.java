@@ -1,6 +1,4 @@
 package player;
-import javax.swing.JPanel;
-import javax.swing.Timer;
 
 /*
  * Author: Kate Hohenstein
@@ -23,7 +21,6 @@ public class Player {
 		this.x = x;
 		this.y  = y;
 		this.imagePath = imagePath;
-		this.score = score;
 	}
 
 	public int getX() {

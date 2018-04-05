@@ -1,49 +1,62 @@
+/* Author: Kathryn Reese
+ * Partners: Hannah Hollenback, Kate Hohenstein
+ * Date Created: 03/21/18
+ * Sets and gets scores, keeping track of the highest score
+ * in an array.
+ */
 package Miscellaneous;
+
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class Score {
 	private int playerScore;
-	private Integer[] topThreeScores = {0, 0, 0};
+	private static ArrayList<Integer> topThreeScores = new ArrayList<Integer>();
 
+	/*_______________________________________________
+	 * 
+	 * Getters and Setters for playerScore variable
+	 * 
+	 ________________________________________________*/
 	public int getPlayerScore() {
 		return playerScore;
-		
 	}
 
 	public void setPlayerScore(int playerScore) {
 		this.playerScore = playerScore;
 	}
-	//calculate and store top 3 scores and accompanying player info
-		// Kathryn: added calculate to the beginning of method name to distinguish it from the other method
-		// Kathryn: Method will add the top three scores to an array.
-		public void calculateTopThree()
-		{	
-			if(getPlayerScore() > topThreeScores[0]) {
-				topThreeScores[0] = getPlayerScore();
-			}
-			else if(getPlayerScore() > topThreeScores[1]) {
-				topThreeScores[1] = getPlayerScore();
-			}
-			else if(getPlayerScore() > topThreeScores[2]) {
-				topThreeScores[2] = getPlayerScore();
+	/*________________________________________________________________________________
+	 * calculateTopThree()
+	 * This method will add 0's to an ArrayList if it is empty. Then it will add the
+	 * player's score to the list, sort it, and then reverse the order.
+	 * If the ArrayList contains more than 3 integers it will remove the lowest integer.
+	 _________________________________________________________________________________*/
+		private void calculateTopThree()
+		{	if(topThreeScores.isEmpty()) {
+			for(int i = 0; i < 3; i++) {
+			topThreeScores.add(0);
 			}
 		}
-	
-		// display top 3 scores and accompanying player info
-		// Kathryn: This method will display the top three scores in a JLabel.
-		/*???????????????????????????????????????????????????????????????????????????
-		 * 
-		 * NOTE: We only have to display the top three high scores. Not scores from
-		 * different players.
-		 * 
-		 ????????????????????????????????????????????????????????????????????????????*/
-			public String showTopThree()
-			{
-				calculateTopThree();
-				String scoresString = "<html><body>Top Score: " + topThreeScores[0] + "\n" +
-									  "Second Top Score: " + topThreeScores[1] + "\n" +
-									  "Third Top Score: " + topThreeScores[2] + "\n</body></html>";
-				return scoresString;
-			}
+		
+		topThreeScores.add(getPlayerScore());
+		Collections.sort(topThreeScores);
+		Collections.reverse(topThreeScores);
+		
+		if (topThreeScores.size() > 3) {		
+			topThreeScores.remove(3);
+		}
+			
+		}
+
+		// toString
+		public String toString()
+		{
+			calculateTopThree();
+			String scoresString = "<html><body>Top Score: " + topThreeScores.get(0) + "<br>" +
+								  "Second Top Score: " + topThreeScores.get(1) + "<br>" +
+								  "Third Top Score: " + topThreeScores.get(2) + "<br></body></html>";
+			return scoresString;
+		}
 
 }
 

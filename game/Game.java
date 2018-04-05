@@ -5,16 +5,10 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
-import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.Timer;
 
 import Miscellaneous.LevelUp;
-import Miscellaneous.Score;
-import Movement.Movement;
 import enemy.Enemy;
 import items.Items;
 import player.Player;
@@ -25,14 +19,10 @@ import player.Player;
  * Lab 6
  * 3/10/18
  * Game: set up methods allowing for game execution
- * Kathryn: Will call instances of Player, Enemy, and Item Classes
  */
 public class Game {
 	/*-----------------------------------------------
 	 * Attributes
-	 * Kathryn: Added Attributes
-	 * 
-	 * (The Game class has an Enemy class, Player class, and Item class)
 	 ------------------------------------------------*/
 	
 	// Instance of random to set the location of items
@@ -42,7 +32,6 @@ public class Game {
 	private Enemy enemy;
 	
 	private Items items;
-	private LevelUp levelUp = new LevelUp(items);
 	private JPanel gamePanel;
 	// Gather from file to pass into player parameters
 	private String name;
@@ -111,6 +100,7 @@ public class Game {
 	 * Method Author: Kathryn Reese
 	 * Date: 03/22/18
 	 * goes through the file, assigning each line to a variable
+	 * This creates a new instance of Player with a random character.
 	 _________________________________________________________________________________________*/ 
 	private void setUpPlayer() throws FileNotFoundException {
 		String fileLocation = randomlySelectPlayer();
@@ -121,15 +111,10 @@ public class Game {
 		x = myScanner.nextInt();
 		y = myScanner.nextInt();
 		player = new Player(name, x, y, imagePath);
+		myScanner.close();
 	}
 	
-	/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	 * 
-	 * TODO: Set item position on screen
-	 * Create a loop to create the number of item instances.
-	 * (Kathryn)
-	 * 
-	 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+
 	/* _______________________________________________________________________________________
 	 * Method Author: Kathryn Reese
 	 * Date: 03/22/18
@@ -154,9 +139,14 @@ public class Game {
 	 * Method Author: Kathryn Reese
 	 * Date: 03/22/18
 	 * Sets up the items on the screen. Creates a certain number of instances of items.
+	 * The first for loop will create instances of items giving them random X's, Y's, and images.
+	 * It adds these Item instances to a loop.
+	 * The second for loop, loops through the Items list and gets the images, puts the image path
+	 * in an ImageIcon and stores these icons in another loop.
+	 * 
 	 _________________________________________________________________________________________*/ 
 	private void setUpItems() {
-		for(int i = 0; i < (4 + levelUp.incrementItemNumber()) ; i++) {
+		for(int i = 0; i < (5) ; i++) {
 			
 			int randomItemX = randInt.nextInt(550 + 1);
 			int randomItemY = randInt.nextInt(550 + 1);
@@ -174,16 +164,12 @@ public class Game {
 	}
 	
 
-	public LevelUp getLevelUp() {
-		return levelUp;
-	}
-
-	public void setLevelUp(LevelUp levelUp) {
-		this.levelUp = levelUp;
-	}
-
-	//sets up screen
-	// Kathryn: Will set up the characters and the items on screen
+	/*_________________________________________________________
+	 * 
+	 * setUp() Method:
+	 * sets up the player, enemy, and items
+	 * 
+	 __________________________________________________________*/
 	public void setUp() throws FileNotFoundException
 	{
 		setUpPlayer();
@@ -191,20 +177,6 @@ public class Game {
 		setUpItems();
 		playerIcon = new ImageIcon(player.getImagePath());
 		enemyIcon = new ImageIcon(enemy.getImagePath());
-	}
-	
-
-	//sets up next level, new screen, change number/placement of items, speed of enemy
-	/*???????????????????????????????????????????????????????????????????????????????
-	 * 
-	 * NOTE: NextLevel() may need to be a private method that is only called in
-	 * this Game class.
-	 * Until enemy and player classes are finished this will not work.
-	 ?????????????????????????????????????????????????????????????????????????????????*/
-	public void nextLevel()
-	{
-		
-		levelUp.increaseItemNumber();
 	}
 
 	
